@@ -1,0 +1,31 @@
+// layout.scss
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 150px;
+  
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      margin: 300px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer {
+      background-color: #ffffff;
+      color: #ccc;
+      text-align: center;
+      padding: 10px;
+    }
+  }
+  

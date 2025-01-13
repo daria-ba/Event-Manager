@@ -1,0 +1,188 @@
+.btn.custom-button {
+  background-color: white;
+  color: rgb(29, 29, 29);
+  border-radius: 20px;
+  border: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(162, 161, 161);
+    color: #f8f9fa;
+    cursor: pointer;
+  }
+}
+
+.carousel {
+  position: relative;
+}
+
+.btn.carousel-control-prev-icon,
+.btn.carousel-control-next-icon {
+  // top: 100%; /* Центрирование кнопок по вертикали */
+  // transform: translateY(-50%);
+  background-color: black;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  // // z-index: 2;
+  // filter: invert(1);
+  &:hover {
+    background-color: rgb(162, 161, 161);
+    color: #f8f9fa;
+    cursor: pointer;
+  }
+}
+
+// .carousel-control-prev:hover,
+// .carousel-control-next:hover {
+//   background-color: rgba(255, 255, 255, 0.8); /* Цвет при наведении */
+// }
+
+.btn.carousel-control-prev-icon,
+.btn.carousel-control-next-icon {
+  filter: invert(1); /* Инверсия цвета иконки */
+}
+
+.carousel-wrapper {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto; /* Для горизонтальной прокрутки */
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+
+  /* Скрываем полосы прокрутки для эстетики */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+
+.locations {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(198, 197, 197);
+  height: 400px;
+  text-align: center;
+  padding: 40px;
+  // margin: 40px;
+}
+// .product-card {
+//   min-width: 200px;
+//   flex: 0 0 auto;
+
+//   /* Адаптация карточек под мобильные устройства */
+//   @media (max-width: 576px) {
+//     min-width: 150px;
+//   }
+// }
+
+// .btn.carousel-buttons {
+
+//     .carousel-control-prev-icon,
+//     .carousel-control-next-icon {
+//       width: 50%;
+//       height: 50%;
+//       background-size: auto;
+//       background-repeat: no-repeat;
+//     }
+
+//   .carousel-control-prev-icon {
+//     background-image: url('../img/left-arrow.png'); /* Своя иконка */
+//   }
+// }
+
+// .btn.carousel-buttons {
+//   // position: absolute;
+//   top: 50%;
+//   // transform: translateY(-50%);
+//   z-index: 10;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   // color: rgb(0, 0, 0);
+//   // border: 2px solid #343a40;
+//   border-radius: 50%;
+//   padding: 10px;
+//   width: 30px;
+//   height: 30px;
+
+//   .carousel-control-prev-icon,
+//     .carousel-control-next-icon {
+//       width: 50%;
+//       height: 50%;
+//       background-size: auto;
+//       background-repeat: no-repeat;
+//     }
+
+//     .carousel-control-prev-icon {
+//       background-image: url('../img/left-arrow.png'); /* Своя иконка */
+
+//       background-color: rgba(213, 213, 213, 0.7);
+//     }
+
+//     .carousel-control-next-icon {
+//       background-image: url('../img/right-arrow.png'); /* Своя иконка */
+//     }
+
+//     &:hover {
+//       background-color: rgba(213, 213, 213, 0.7);
+//     }
+
+//   /* Адаптация кнопок для мобильных устройств */
+//   @media (max-width: 576px) {
+//     button {
+//       width: 30px;
+//       height: 30px;
+//       padding: 5px;
+//     }
+//   }
+// }
+
+// .page-wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh; // Чтобы страница занимала весь экран
+// }
+
+// .header {
+//   position: sticky; // Фиксируем шапку
+//   top: 0;
+//   z-index: 10;
+//   background: #f8f9fa;
+//   padding: 10px 20px;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// }
+
+// .main-content {
+//   flex: 1; // Занимает всё доступное пространство между шапкой и подвалом
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px; // Расстояние между секциями
+// }
+
+// .calendar-section {
+//   padding: 20px;
+//   background: #ffffff;
+//   border-bottom: 1px solid #eaeaea;
+// }
+
+// .carousel-section {
+//   padding: 20px;
+//   background: #f1f1f1;
+// }
+
+// .product-section {
+//   padding: 20px;
+//   background: white
+// }
+
+// .footer {
+//   padding: 20px;
+//   background: #343a40;
+//   color: #fff;
+//   text-align: center;
+// }
