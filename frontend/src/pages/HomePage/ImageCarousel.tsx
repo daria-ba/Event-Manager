@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import party from "../../img/party.avif"
+import party from "../../img/party.png"
 import conference from "../../img/conferences.png"
 import yoga from "../../img/yoga.png"
 import { Container, Carousel } from "react-bootstrap";
