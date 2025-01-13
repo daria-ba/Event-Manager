@@ -1,10 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Carousel from "react-bootstrap/Carousel";
-import background from '../../img/joy.png'
+import party from "../../img/party.avif"
+import conference from "../../img/conferences.png"
+import yoga from "../../img/yoga.png"
 import { Container, Carousel } from "react-bootstrap";
 
-const ImageCarousel = () => {
+const ImageCarousel : React.FC = () => {
   return (
     <Container fluid className="rounded"
     style={{ borderRadius: "30px", maxWidth: "1300px" }}
@@ -13,7 +14,7 @@ const ImageCarousel = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={background}
+          src={party}
           alt="Первое изображение"
           style={{ maxHeight: "400px", objectFit: "cover", borderRadius: "30px" }}
         />
@@ -25,7 +26,7 @@ const ImageCarousel = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={background}
+          src={conference}
           alt="Второе изображение"
           style={{ maxHeight: "400px", objectFit: "cover", borderRadius: "30px" }}
         />
@@ -37,7 +38,7 @@ const ImageCarousel = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={background}
+          src={yoga}
           alt="Третье изображение"
           style={{ maxHeight: "400px", objectFit: "cover", borderRadius: "30px" }}
         />

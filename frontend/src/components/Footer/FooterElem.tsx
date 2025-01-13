@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import background from '../../img/background.png'
 
 
 const FooterElem: React.FC = () => {
@@ -11,7 +10,6 @@ const FooterElem: React.FC = () => {
             fluid
             className="text-center text-white p-0 m-0"
             style={{
-                // backgroundImage: `url(${background})`,
                 textDecoration: "none",
                 backgroundColor: 'rgba(66, 66, 66, 0.9)',
             }}

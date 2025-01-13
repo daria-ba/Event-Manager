@@ -1,58 +1,55 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Carousel from "react-bootstrap/Carousel";
-import background from '../../img/joy.png'
-import { Container, Carousel, Row, Col, Image, Figure, Modal, Button, Card } from "react-bootstrap";
-import party from "../../img/party.jpg"
+import { Container, Button, Card } from "react-bootstrap";
 
-const CardElem = () => {
+const CardElem: React.FC = () => {
 
-    const [products] = useState([
-      { id: 1, title: "Product 1", description: "Description 1" },
-      { id: 2, title: "Product 2", description: "Description 2" },
-      { id: 3, title: "Product 3", description: "Description 3" },
-      { id: 4, title: "Product 4", description: "Description 4" },
-      { id: 5, title: "Product 5", description: "Description 5" },
-      { id: 6, title: "Product 6", description: "Description 6" },
-      { id: 7, title: "Product 7", description: "Description 7" },
-      { id: 8, title: "Product 8", description: "Description 8" },
-    ]);
-
-  const [show, setShow] = useState(false);
-
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  const [products] = useState([
+    { id: 1, img: "", title: "Product 1", description: { location: "location 1", time: "time 1", price: "0$"} },
+    { id: 2, img: "", title: "Product 2", description: { location: "location 2", time: "time 2", price: "0$"} },
+    { id: 3, img: "", title: "Product 3", description: { location: "location 3", time: "time 3", price: "0$"} },
+    { id: 4, img: "", title: "Product 4", description: { location: "location 4", time: "time 4", price: "0$"} },
+    { id: 5, img: "", title: "Product 5", description: { location: "location 5", time: "tim 5", price: "0$"} },
+    { id: 6, img: "", title: "Product 6", description: { location: "location 6", time: "time 6", price: "0$"} },
+    { id: 7, img: "", title: "Product 7", description: { location: "location 7", time: "time 7", price: "0$"} },
+    { id: 8, img: "", title: "Product 8", description: { location: "location 8", time: "time 8", price: "0$"} },
+  ]);
 
   return(
-    <Container className="">
-      <span>Популярные мероприятия</span>
+    <Container>
+      <span><h3>Популярные мероприятия</h3></span>
         <Container
+        className="row"
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          margin: '0',
+          marginTop: "20px",
+          marginBottom: "20px",
           paddingBottom: "40px",
-          gap: "16px",
           color: 'black',
         }}
         >
       {products.map((product) => (
-              <Card className="h-100">
-                <Card.Body>
-                  <Image
-                    src={party}
+         <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+              <Card 
+              key={product.id}
+              className="product-card m-3">
+                <Card.Body className="p-0">
+                  <Card.Img
+                    src={product.img}
                     alt="popular"
-                    className="img-fluid mb-3"
-                    style={{ maxHeight: "150px", objectFit: "cover" }}
                   />
                   <Card.Title>{product.title}</Card.Title>
-                  <Card.Text>{product.description}</Card.Text>
+                  <Card.Text>
+                  <p>{product.description.location}</p>
+                  <p>{product.description.time}</p>
+                  <p>{product.description.price}</p>
+                  </Card.Text>
                 </Card.Body>
               </Card>
+              </div>
           ))}
       </Container>
       <div className="d-flex justify-content-center">
-        <Button variant="custom" className="custom-button">Посмотреть все мероприятия месяца</Button>
+        <Button variant="secondary">Посмотреть все мероприятия месяца</Button>
       </div>
   </Container>
   )

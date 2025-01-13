@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { Button, Card, Container, Image } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import restaurant from "../../img/restaurant.svg"
 import hiking from "../../img/hiking.svg"
@@ -10,23 +10,24 @@ import pc from "../../img/pc.png"
 import conference from "../../img/conference.png"
 
 
-const CategoriesElem = () => {
+const CategoriesElem : React.FC = () => {
   const [categories] = useState([
-    { id: 1, title: "рестораны", img: restaurant, link: '/' },
-    { id: 2, title: "природа", img: hiking, link: '/' },
+    { id: 1, title: "рестораны", img: restaurant, link: '/restaurant' },
+    { id: 2, title: "природа", img: hiking, link: '/nature' },
     { id: 3, title: "настольные игры", img: dice20, link: '/' },
-    { id: 4, title: "бизнес", img: city, link: '/' },
-    { id: 5, title: "концерты", img: ticket, link: '/' },
-    { id: 6, title: "лекции", img: conference, link: '/' },
-    { id: 7, title: "онлайн", img: pc, link: '/' },
+    { id: 4, title: "бизнес", img: city, link: '/business' },
+    { id: 5, title: "концерты", img: ticket, link: '/concerts' },
+    { id: 6, title: "лекции", img: conference, link: '/lections' },
+    { id: 7, title: "онлайн", img: pc, link: '/online' },
   ]);
 
   return (
       <Container
         style={{
         overflowX: "auto",
-        display: "flex",
+        display: "grid",
         justifyContent: "center",
+        gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
         gap: "5px",
         marginTop: "30px",
         paddingBottom: "10px",
@@ -35,41 +36,22 @@ const CategoriesElem = () => {
         <Link
             to={categorie.link}
             className="product-card-link"
-            style={{
-            height: "150px",
-            width: "150px",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-            textDecoration: "none", // Убираем подчеркивание ссылки
-            color: "inherit", // Наследуем цвет текста
-            border: "1px solid transparent", // Граница для стиля
-            borderRadius: "10px",
-            padding: "15px",
-            transition: "all 0.3s ease",
-        }}
-        onMouseEnter={(e) =>
-        (e.currentTarget.style.border = "1px solid #ccc") // Наведение
-        }
-        onMouseLeave={(e) =>
-        (e.currentTarget.style.border = "1px solid transparent")
-        }
         >
+          <div
+            className="categories-wrapper">
             <img
             src={categorie.img}
             alt={categorie.title}
             style={{
-                maxHeight: "50px",
-                maxWidth: "50px",
-                border: "0px",
-                // borderRadius: "50%",
-                marginBottom: "10px",
+                height: "40%",
+                width: "40%",
+                objectFit: "contain",
             }}
             />
-            <h5 style={{ fontSize: "1.2rem", textAlign: "center", margin: "0", overflow: "auto" }}>
+            </div>
+            <h6 style={{ fontSize: "1.2rem", maxWidth: "100px", textAlign: "center", overflow: "auto", textWrap: "wrap" }}>
             {categorie.title}
-            </h5>
+            </h6>
         </Link>
     ))}
     </Container>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal, Button, Form } from 'react-bootstrap';
 
 interface LoginModalProps {
-  show: boolean; // Отображать модалку или нет
-  close: () => void; // Функция закрытия
-  login: (event: React.FormEvent<HTMLFormElement>) => void; // Обработчик формы
+  show: boolean;
+  close: () => void;
+  login: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({ show, close, login }) => {

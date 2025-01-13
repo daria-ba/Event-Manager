@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Container, Row, Col, Image, Figure, Modal, Button, Card } from 'react-bootstrap';
+import React from "react";
+import { Container } from 'react-bootstrap';
 import HeaderElem from "../../components/Navbar/HeaderElem";
 import MyCalendar from "./MyCalendar";
 import FooterElem from "../../components/Footer/FooterElem";
@@ -20,7 +20,7 @@ const GeneralPage: React.FC = () => {
       <MyCalendar />
       <ImageCarousel />
     <section className="product-section">
-      <Container fluid className="m-4">
+      <Container fluid className="m-4 p-4">
         <CategoriesElem />
         <CardElem />
       </Container>

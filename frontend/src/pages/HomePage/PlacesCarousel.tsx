@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
-import { Button, Card, Container, Image, Row, Col} from "react-bootstrap";
-import party from "../../img/party.jpg"
+import { Button, Card, Container} from "react-bootstrap";
 
-const PlacesCarousel = () => {
+const PlacesCarousel: React.FC = ()  => {
   const [products] = useState([
     { id: 1, title: "Place 1", description: "Description 1", img: "" },
     { id: 2, title: "Place 2", description: "Description 2", img: "" },
@@ -30,7 +29,6 @@ const PlacesCarousel = () => {
         width: "100%",
         alignItems: "center",
         justifyContent: "space-between",
-        // gap: "16px",
       }}>
     <span style={{ fontSize: "1.25rem", fontWeight: "bold" }}><h3>Популярные площадки</h3></span>
     <div>
@@ -42,16 +40,16 @@ const PlacesCarousel = () => {
       </Button>
       <Button
       variant="custom"
-        className="carousel-buttons button carousel-control-next-icon"
+        className="carousel-control-next-icon"
         onClick={scrollRight}
       >
       </Button>
     </div>
     </div>
-  {/* </div> */}
+
       {/* Карусель */}
       <div
-        className="carousel-wrapper d-flex"
+        className="carousel-wrapper"
         ref={scrollRef}
         style={{
           overflowX: "auto",
@@ -66,18 +64,9 @@ const PlacesCarousel = () => {
           <Card
             key={product.id}
             className="product-card"
-            style={{
-              // minWidth: "200px",
-              // height: "300px",
-              flex: "0 0 auto",
-            }}
           >
             <Card.Body className="p-0">
-              <Card.Img src={party} style={{
-                maxHeight: '200px',
-                margin: "0px",
-              
-              }}></Card.Img>
+              <Card.Img src=""></Card.Img>
               <Card.Title><h2>{product.title}</h2></Card.Title>
               <Card.Text>{product.description}</Card.Text>
             </Card.Body>
