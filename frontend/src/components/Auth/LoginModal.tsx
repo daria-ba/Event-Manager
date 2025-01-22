@@ -11,7 +11,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, close, login }) => {
   return (
     <Modal show={show} onHide={close} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Quick Sign In</Modal.Title>
+        <Modal.Title>Quick Log In</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={login}>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CardElem: React.FC = () => {
 
@@ -49,7 +50,9 @@ const CardElem: React.FC = () => {
           ))}
       </Container>
       <div className="d-flex justify-content-center">
+        <Link to={"/map"}>
         <Button variant="secondary">Посмотреть все мероприятия месяца</Button>
+        </Link>
       </div>
   </Container>
   )
