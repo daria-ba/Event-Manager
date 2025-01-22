@@ -10,33 +10,28 @@ import CategoriesElem from "./CategoriesElem"
 
 
 const GeneralPage: React.FC = () => {
-    return (
-      <div className="page-wrapper">
+  return (
+    <div className="page-wrapper">
       <header className="header m-0 p-0 w-100">
-      <HeaderElem />
-    </header>
+        <HeaderElem />
+      </header>
 
-  <main className="main-content">
-      <MyCalendar />
-      <ImageCarousel />
-    <section className="product-section">
-      <Container fluid className="m-4 p-4">
-        <CategoriesElem />
-        <CardElem />
-      </Container>
-      <Container fluid className="locations">
-        <PlacesCarousel />
-        </Container>
-    </section>
-  </main>
-
-  <footer className="footer">
-    <Container fluid className="p-0">
+      <main className="main-content">
+        <MyCalendar />
+        <ImageCarousel />
+        <section className="product-section">
+          <Container fluid className="m-4 p-4">
+            <CategoriesElem />
+            <CardElem />
+          </Container>
+          <Container fluid className="locations">
+            <PlacesCarousel />
+          </Container>
+        </section>
+      </main>
       <FooterElem />
-    </Container>
-  </footer>
-  </div>
-    )
+    </div>
+  )
 };
 
 export default GeneralPage;

@@ -21,11 +21,16 @@
       align-items: center;
     }
   
-    .footer {
-      background-color: #ffffff;
-      color: #ccc;
-      text-align: center;
-      padding: 10px;
-    }
+  .footer {
+    position: fixed;
+    background-color: #ffffff;
+    color: #ccc;
+    text-align: center;
   }
+}
+
+ul {
+  list-style-type: none;
+}
+
   

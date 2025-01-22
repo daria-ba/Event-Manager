@@ -23,13 +23,14 @@ const PlacesCarousel: React.FC = ()  => {
 
   return (
     <Container>
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}>
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
     <span style={{ fontSize: "1.25rem", fontWeight: "bold" }}><h3>Популярные площадки</h3></span>
     <div>
       <Button
