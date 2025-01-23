@@ -43,8 +43,8 @@ const MapPage: React.FC = () => {
   const [events] = useState([
     { id: 1, name: "Event 1", price: 0, city: "Санкт-Петербург", date: "Сегодня", category: "Природа", },
     { id: 2, name: "Event 2", price: 1000, city: "Москва", date: "Сегодня", category: "Квесты", },
-    { id: 3, name: "Event 3", price: 2, city: "Москва", date: "Завтра", category: "Квесты", },
-    { id: 4, name: "Event 4", price: 40, city: "Санкт-Петербург", date: "На этой неделе", category: "Онлайн",},
+    { id: 3, name: "Event 3", price: 200, city: "Москва", date: "Завтра", category: "Квесты", },
+    { id: 4, name: "Event 4", price: 700, city: "Санкт-Петербург", date: "На этой неделе", category: "Онлайн",},
     { id: 5, name: "Event 5", price: 300, city: "Санкт-Петербург", date: "Завтра", category:"Рестораны", },
     { id: 6, name: "Event 6", price: 500, city: "Санкт-Петербург", date: "Завтра", category: "Концерты" },
   ]);
@@ -80,9 +80,9 @@ const MapPage: React.FC = () => {
   console.log(filter);
 
   return (
-    <div className="m-0 p-0">
+    <div className="d-flex flex-column min-vh-100">
       <HeaderElem />
-      <Container fluid className="mt-4">
+      <Container fluid className="">
         <Row className="mb-3">
           <Col xs={12}>
             <h3 className="text-right">События в Москве и Санкт-Петербурге</h3>

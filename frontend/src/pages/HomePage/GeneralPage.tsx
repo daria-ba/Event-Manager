@@ -11,12 +11,12 @@ import CategoriesElem from "./CategoriesElem"
 
 const GeneralPage: React.FC = () => {
   return (
-    <div className="page-wrapper">
-      <header className="header m-0 p-0 w-100">
+    <div className="d-flex flex-column min-vh-100">
+      {/* <header className=""> */}
         <HeaderElem />
-      </header>
+      {/* </header> */}
 
-      <main className="main-content">
+      {/* <main className="main-content"> */}
         <MyCalendar />
         <ImageCarousel />
         <section className="product-section">
@@ -28,7 +28,7 @@ const GeneralPage: React.FC = () => {
             <PlacesCarousel />
           </Container>
         </section>
-      </main>
+      {/* </main> */}
       <FooterElem />
     </div>
   )
