@@ -22,10 +22,11 @@
     }
   
   .footer {
-    position: fixed;
-    background-color: #ffffff;
-    color: #ccc;
     text-align: center;
+    flex-shrink: 0;
+    margin-top: "auto";
+    padding: "0px";
+    background-color: "rgba(66, 66, 66, 0.9)";
   }
 }
 

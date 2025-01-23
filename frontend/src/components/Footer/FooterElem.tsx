@@ -7,7 +7,7 @@ const FooterElem: React.FC = () => {
   return (
     <Container
       fluid
-      className="text-center text-white p-0 m-0"
+      className="footer text-center text-white p-0 m-0"
       style={{
         flexShrink: 0,
         marginTop: "auto",
