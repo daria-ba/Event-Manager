@@ -1,18 +1,20 @@
+require('dotenv').config();
 const express = require('express');
-const { sequelize } = require('./models'); // Подключение Sequelize
-const app = require('./app'); // Файл app.js с маршрутами
+const cors = require('cors');
+const eventsRoutes = require('./routes/eventRoutes');
+const authRoutes = require('./routes/authRoutes');
 
-const PORT = process.env.PORT || 3000;
+const app = express();
 
-// Проверяем подключение к базе данных и запускаем сервер
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Database connected successfully.');
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error('Unable to connect to the database:', error);
-  });
+app.use(cors());
+app.use(express.json());
+
+app.use('/api/events', eventsRoutes);
+app.use('/api/auth', authRoutes);
+
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+module.exports = app;

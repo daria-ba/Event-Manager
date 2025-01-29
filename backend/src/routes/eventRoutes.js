@@ -1,22 +1,10 @@
 const express = require('express');
+const { createEventController, getEventsController } = require('../controllers/eventController');
+const { authentificate } = require('../middleware/authMiddleware');
+
 const router = express.Router();
-const { Event } = require('../models');
 
-// Создание события
-router.post('/', async (req, res) => {
-  try {
-    const { title, description, date, location } = req.body;
-    const event = await Event.create({ title, description, date, location });
-    res.status(201).json(event);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
-// Получение всех событий
-router.get('/', async (req, res) => {
-  const events = await Event.findAll();
-  res.json(events);
-});
+router.get('/events', getEventsController);
+router.post('/events', createEventController);
 
 module.exports = router;
