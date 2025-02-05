@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { loginUser } from "../../api/auth";
+import { registerUser } from "../../api/auth";
 
-interface LoginModalProps {
+interface RegistrationModalProps {
   show: boolean;
   close: () => void;
-  login: (event: React.FormEvent<HTMLFormElement>) => void;
+  sign: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ show, close, login }) => {
+const RegistrationModal: React.FC<RegistrationModalProps> = ({ show, close, sign }) => {
   const [ input, setInput ] = useState({
+    username: "",
     login: "",
     password: "",
   });
@@ -27,8 +28,8 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, close, login }) => {
   const handlesubmit = (e: any) => {
     e.preventDefault();
 
-    if (input.login !== "" && input.password !== ""){
-      loginUser(input.login, input.password);
+    if (input.username !== "" && input.login !== "" && input.password !== ""){
+        registerUser(input.username, input.login, input.password);
       console.log('handle login')
       
     }
@@ -41,6 +42,10 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, close, login }) => {
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handlesubmit}>
+        <Form.Group className="mb-3" controlId="formBasicLogin">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="username" name="username" value={input.username} placeholder="Введите name" required onChange={handleInput}/>
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicLogin">
             <Form.Label>Login</Form.Label>
             <Form.Control type="login" name="login" value={input.login} placeholder="Введите логин" required onChange={handleInput}/>
@@ -58,4 +63,4 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, close, login }) => {
   );
 };
 
-export default LoginModal;
+export default RegistrationModal;

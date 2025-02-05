@@ -4,7 +4,7 @@ const { authentificate } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.get('/events', getEventsController);
-router.post('/events', createEventController);
+router.get('/', getEventsController);
+router.post('/', createEventController);
 
 module.exports = router;

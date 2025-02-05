@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Form, FormControl, Button, InputGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import LoginModal from "../Auth/LoginModal";
+import RegistrationModal from "../Auth/RegistrationModal";
 import SigninModal from '../Auth/SigninModal';
 import search from '../../img/search.png';
 
@@ -105,7 +106,7 @@ const HeaderElem: React.FC = () => {
         </Nav>
       </Navbar.Collapse>
       <LoginModal show={showLogin} close={handleLoginClose} login={handleLogin} />
-      <SigninModal show={showSignin} close={handleSigninClose} sign={handleSignin} />
+      <RegistrationModal show={showSignin} close={handleSigninClose} sign={handleSignin} />
     </Navbar>
   )
 };

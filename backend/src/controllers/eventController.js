@@ -1,9 +1,9 @@
 const { createEvent, getEvents } = require('../services/eventService');
 
 const createEventController = async (req, res) => {
-  const { title, description, date, location } = req.body;
+  const { id, title, description, date, price, place, category } = req.body;
   try {
-    await createEvent(title, description, date, location);
+    await createEvent(id, title, description, date, price, place, category);
     res.status(201).json({ message: 'Мероприятие добавлено!' });
   } catch (error) {
     res.status(500).json({ message: error.message });

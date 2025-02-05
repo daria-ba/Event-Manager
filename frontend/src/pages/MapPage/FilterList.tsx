@@ -85,9 +85,6 @@ const FilterList: React.FC<FilterListProps> = ({ categories, filters, setFilters
     });
   };
 
-  console.log("Is Filters Open?", isFiltersOpen);
-
-  console.log(`filters ${filters.categories}`);
   return (
     <div className='p-4'>
       <Button

@@ -36,12 +36,12 @@ const ProductsView: React.FC<ProductsViewProps> = ({ filteredProducts }) => {
               >
                 <Card.Img
                   variant="left"
-                  src={product.name}
-                  alt={product.name}
+                  src={product.title}
+                  alt={product.title}
                   style={{ width: "100px", height: "100px" }}
                 />
                 <Card.Title className="mt-3">
-                  {product.name}
+                  {product.title}
                 </Card.Title>
                 <Card.Text>
                   Информация о событии

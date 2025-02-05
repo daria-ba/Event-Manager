@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const { jwt } = require ('jsonwebtoken');
+const jwt = require ('jsonwebtoken');
 const { registerUser, findUserByLogin } = require('../services/userService');
 
 const registerController = async (req, res) => {
@@ -11,8 +11,8 @@ const registerController = async (req, res) => {
 
   const userExists = await findUserByLogin(login);
   if (userExists) return res.status(400).json({ message: 'Логин должен быть уникальным' });
-
-    const hashedPassword = await bcrypt.hash(password, 10);
+  const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     try {
     await registerUser(username, login, hashedPassword);
@@ -33,8 +33,9 @@ const loginController = async (req, res) => {
   if (!user) {
     return res.status(400).json({ message: 'Пользователь не найден' });
   }
+  
+ const isPasswordValid = await bcrypt.compare(password, user.password);
 
-  const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
     return res.status(400).json({ message: 'Неверный пароль' });
   }
@@ -43,8 +44,7 @@ const loginController = async (req, res) => {
     expiresIn: '1h',
   });
 
-  res.status(200).json({ message: 'Успешный вход', token });
-
+  res.status(200).json({ message: 'Успешный вход', login, token });
 };
 
 module.exports = { registerController, loginController };

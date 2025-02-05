@@ -24,7 +24,7 @@ const registerUser = async (username, login, password) => {
 const findUserByLogin = async (login) => {
     const { data, error } = await database
     .from('users')
-    .select('login')
+    .select('login, password')
     .eq('login', login)
     .maybeSingle();
     if (error) throw new Error(error.message);

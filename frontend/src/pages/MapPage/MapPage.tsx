@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import FooterElem from "../../components/Footer/FooterElem";
 import HeaderElem from "../../components/Navbar/HeaderElem";
 import EventMap from "../MapPage/EventMap"
 import FilterList from "./FilterList";
+import { getEvents } from "../../api/events"
 import ProductsView from "./ProductsView";
 
 export type Category = {
@@ -22,10 +23,12 @@ export type Filter = {
   
 export type Event = {
   id: number;
-  name: string;
-  price: number;
-  city: string;
+  title: string;
+  description: string;
   date: string;
+  price: number;
+  place: string;
+  category: string;
 };
 
 const MapPage: React.FC = () => {
@@ -40,19 +43,13 @@ const MapPage: React.FC = () => {
     { id: 7, title: "Онлайн", img: "", link: 'Онлайн' },
   ]);
 
-  const [events] = useState([
-    { id: 1, name: "Event 1", price: 0, city: "Санкт-Петербург", date: "Сегодня", category: "Природа", },
-    { id: 2, name: "Event 2", price: 1000, city: "Москва", date: "Сегодня", category: "Квесты", },
-    { id: 3, name: "Event 3", price: 200, city: "Москва", date: "Завтра", category: "Квесты", },
-    { id: 4, name: "Event 4", price: 700, city: "Санкт-Петербург", date: "На этой неделе", category: "Онлайн",},
-    { id: 5, name: "Event 5", price: 300, city: "Санкт-Петербург", date: "Завтра", category:"Рестораны", },
-    { id: 6, name: "Event 6", price: 500, city: "Санкт-Петербург", date: "Завтра", category: "Концерты" },
-  ]);
+  const [events, setEvents] = useState<Event[]>([]);
 
   const [filter, setFilter] = useState<Filter>(() => {
   const searchParams = new URLSearchParams(window.location.search);
   const categoriesParam = searchParams.get("categories");
   const initialCategories = categoriesParam ? categoriesParam.split(",") : [];
+  
 
   return {
     priceRange: [0, 1000],
@@ -61,6 +58,10 @@ const MapPage: React.FC = () => {
     categories: initialCategories,
   }
   });
+
+  useEffect(() => {
+    getEvents().then(setEvents);
+  }, []);
 
   const filteredProducts = events.filter((event) => { 
     const matchesCategory =
@@ -71,13 +72,12 @@ const MapPage: React.FC = () => {
     event.price >= min && event.price <= max;
 
     const matchesCity =
-    filter.city.length === 0 || filter.city.includes(event.city)
+    filter.city.length === 0 || filter.city.includes(event.place)
 
       const matchesDate =
       filter.date.length === 0 || filter.date.includes(event.date);
     return matchesCategory && matchesPrice && matchesCity && matchesDate;
   });
-  console.log(filter);
 
   return (
     <div className="d-flex flex-column min-vh-100">

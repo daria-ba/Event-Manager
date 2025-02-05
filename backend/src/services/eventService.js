@@ -11,7 +11,7 @@ const createEvent = async (title, description, date, price, place, category) => 
 const getEvents = async () => {
     const { data, error } = await database
     .from('events')
-    .select('title, description, date, price, place, category');
+    .select('id, title, description, date, price, place, category');
     if (error) throw new Error(error.message);
     return data;
 };

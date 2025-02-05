@@ -6,7 +6,8 @@ import FooterElem from "../../components/Footer/FooterElem";
 import ImageCarousel from './ImageCarousel'
 import CardElem from "./CardElem";
 import PlacesCarousel from "./PlacesCarousel";
-import CategoriesElem from "./CategoriesElem"
+import CategoriesElem from "./CategoriesElem";
+import EventsList from "../../components/Card/EventList";
 
 
 const GeneralPage: React.FC = () => {
@@ -20,9 +21,10 @@ const GeneralPage: React.FC = () => {
         <MyCalendar />
         <ImageCarousel />
         <section className="product-section">
-          <Container fluid className="m-4 p-4">
+          <Container fluid className="">
             <CategoriesElem />
             <CardElem />
+            {/* <EventsList /> */}
           </Container>
           <Container fluid className="locations">
             <PlacesCarousel />

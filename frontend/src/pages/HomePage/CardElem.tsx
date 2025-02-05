@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { getEvents } from "../../api/events";
+
+type Event = {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  price: number;
+  place: string;
+  category: string;
+}
 
 const CardElem: React.FC = () => {
 
-  const [products] = useState([
-    { id: 1, img: "", title: "Product 1", description: { location: "location 1", time: "time 1", price: "0$"} },
-    { id: 2, img: "", title: "Product 2", description: { location: "location 2", time: "time 2", price: "0$"} },
-    { id: 3, img: "", title: "Product 3", description: { location: "location 3", time: "time 3", price: "0$"} },
-    { id: 4, img: "", title: "Product 4", description: { location: "location 4", time: "time 4", price: "0$"} },
-    { id: 5, img: "", title: "Product 5", description: { location: "location 5", time: "tim 5", price: "0$"} },
-    { id: 6, img: "", title: "Product 6", description: { location: "location 6", time: "time 6", price: "0$"} },
-    { id: 7, img: "", title: "Product 7", description: { location: "location 7", time: "time 7", price: "0$"} },
-    { id: 8, img: "", title: "Product 8", description: { location: "location 8", time: "time 8", price: "0$"} },
-  ]);
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    getEvents().then(setEvents);
+  }, []);
 
   return(
     <Container>
@@ -28,21 +34,21 @@ const CardElem: React.FC = () => {
           color: 'black',
         }}
         >
-      {products.map((product) => (
-         <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+      {events.map((event) => (
+         <div key={event.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
               <Card 
-              key={product.id}
+              key={event.id}
               className="product-card m-3">
                 <Card.Body className="p-0">
                   <Card.Img
-                    src={product.img}
+                    src=""
                     alt="popular"
                   />
-                  <Card.Title>{product.title}</Card.Title>
+                  <Card.Title>{event.title}</Card.Title>
                   <Card.Text>
-                  <p>{product.description.location}</p>
-                  <p>{product.description.time}</p>
-                  <p>{product.description.price}</p>
+                  <p>{event.description}</p>
+                  <p>{event.place}</p>
+                  <p>{event.price}</p>
                   </Card.Text>
                 </Card.Body>
               </Card>
